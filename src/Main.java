@@ -1,44 +1,52 @@
+import java.util.zip.ZipOutputStream;
+
 class Homework {
-    public static void task_1 () {
+    public static void checkHighYear() {
         int year = 2022;
         if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
             System.out.println("високосный год");
         } else {
             System.out.println("не високосный год");
         }
+        System.out.println();
     }
 
-    public static void task_2 ( int clientDeviceYear) {
-        if (clientDeviceYear > 2014) {
-            System.out.println("установите облегченную версию приложения для Android по ссылке");
-        } else {
-            System.out.println("установка приложения для Android");
+
+    public static void selectVersion(int deviceOs, int manufacturingYear) {
+        int deviceCurrentYear = 2021;
+        boolean ds = deviceCurrentYear > manufacturingYear;
+        System.out.println("установите");
+        if (ds){
+            System.out.println("lite");
         }
-        if (clientDeviceYear > 2016) {
-            System.out.println("установите облегченную версию приложения для iOS по ссылке");
-        } else {
-            System.out.println("установка приложения для iOS");
+        System.out.println("версию для:");
+        if (deviceOs == 0) {
+            System.out.println("ios");
+        }else {
+            System.out.println("android");
         }
+        System.out.println();
     }
-    public static void task_3 (int deliveryDistance) {;
-        if (deliveryDistance <= 20) {
+
+    public static int countingDaysFromDistance(int distance) {
+        if (distance <= 20) {
             System.out.println("доставка занимает 1 сутки");
-        } else if (deliveryDistance < 21 || deliveryDistance <= 60) {
+        } else if (distance < 21 || distance <= 60) {
             System.out.println("доставка занимает 2 суток");
-        } else if (deliveryDistance <= 100) {
+        } else if (distance <= 100) {
             System.out.println("доставка занимает 3 суток");
         } else {
             System.out.println("расстояние превышает зону покрытия территории банка");
+
+        }
+        return distance;
+    }
+
+        public static void main (String[]args){
+            checkHighYear();
+            selectVersion(1,2022);
+
+            countingDaysFromDistance(34);
         }
     }
-    public static void main(String[] args) {
-        task_1();
-        System.out.println();
 
-        task_2(2015);
-        System.out.println();
-
-        task_3(95);
-
-    }
-}
